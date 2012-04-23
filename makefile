@@ -1,8 +1,6 @@
-pcs: clean pcs4 pcs5
+pcs: clean pcs4
 pcs4: main.o md5.o knownorder_gmp.o unknownorder_gmp.o ZZ.o ZZn.o ECp.o common_gmp.o
-	g++ $(CPPFLAGS) main.o md5.o knownorder_gmp.o unknownorder_gmp.o ZZ.o ZZn.o ECp.o common_gmp.o libgmp-4.2.3.a -o pcs4
-pcs5: main.o md5.o knownorder_gmp.o unknownorder_gmp.o ZZ.o ZZn.o ECp.o common_gmp.o
-	g++ $(CPPFLAGS) main.o md5.o knownorder_gmp.o unknownorder_gmp.o ZZ.o ZZn.o ECp.o common_gmp.o libgmp-5.0.1.a -o pcs5
+	g++ $(CPPFLAGS) main.o md5.o knownorder_gmp.o unknownorder_gmp.o ZZ.o ZZn.o ECp.o common_gmp.o -lgmp -o pcs4
 main.o: main.cpp common_gmp.h
 	g++ $(CPPFLAGS) -c main.cpp
 md5.o: md5.c md5.h

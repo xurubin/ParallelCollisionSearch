@@ -14,31 +14,31 @@ public:
 	CZZ(const CZZ& d);
 	CZZ(mpz_t& d);
 
-	CZZ operator+(CZZ& p)
+	CZZ operator+(const CZZ& p)
 	{ mpz_add(t, value, p.value); return CZZ(t); }
-	void operator+=(CZZ& p)
+	void operator+=(const CZZ& p)
 	{ mpz_add(value, value, p.value); }
-	CZZ operator-(CZZ& p)
+	CZZ operator-(const CZZ& p)
 	{ mpz_sub(t, value, p.value); return CZZ(t); }
-	void operator-=(CZZ& p)
+	void operator-=(const CZZ& p)
 	{ mpz_sub(value, value, p.value); }
-	CZZ operator*(CZZ& p)
+	CZZ operator*(const CZZ& p)
 	{ mpz_mul(t, value, p.value); return CZZ(t); }
-	CZZ operator/(CZZ& p)
+	CZZ operator/(const CZZ& p)
 	{ mpz_fdiv_q(t, value, p.value);	return CZZ(t); }
-	CZZ operator%(CZZ& p)	
+	CZZ operator%(const CZZ& p)	
 	{ mpz_fdiv_r(t, value, p.value); 	return CZZ(t); }
-	bool operator>(CZZ& p)	
+	bool operator>(const CZZ& p)	
 	{ return mpz_cmp(this->value, p.value) > 0;}
-	bool operator<(CZZ& p)	
+	bool operator<(const CZZ& p)	
 	{ return mpz_cmp(this->value, p.value) < 0;}
-	bool operator>=(CZZ& p)	
+	bool operator>=(const CZZ& p)	
 	{ return mpz_cmp(this->value, p.value) >= 0;}
-	bool operator<=(CZZ& p)	
+	bool operator<=(const CZZ& p)	
 	{ return mpz_cmp(this->value, p.value) <= 0;}
-	bool operator==(CZZ& p)	
+	bool operator==(const CZZ& p)	
 	{ return mpz_cmp(this->value, p.value) == 0;}
-	bool operator!=(CZZ& p)	
+	bool operator!=(const CZZ& p)	
 	{ return mpz_cmp(this->value, p.value) != 0;}
 	CZZ& operator=(const CZZ& p)
 	{	mpz_set(value, const_cast<CZZ&>(p).value); return *this; }
